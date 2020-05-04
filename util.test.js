@@ -24,6 +24,6 @@ test("should output name and age", () => {
 // adding a second test to ensure we don't get a false positive
 // you could write the test to check for the opposite of the test above, or for the same thing with different arguments
 test("should output data-less text", () => {
-  const text = generateText("", null);
-  expect(text).toBe(" (null years old)");
+  const text = generateText(undefined, null);
+  expect(text).toBe("undefined (null years old)");
 });
