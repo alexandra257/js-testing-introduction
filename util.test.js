@@ -16,4 +16,14 @@ test("should output name and age", () => {
   // then we chain on helper functions to the expectable object
   // toBe checks that a value is what you expect, using strict equality (===)
   expect(text).toBe("Alex (25 years old)");
+  // we can run a second check within the same test passing in different values
+  const text2 = generateText("Steph", 28);
+  expect(text2).toBe("Steph (28 years old)");
+});
+
+// adding a second test to ensure we don't get a false positive
+// you could write the test to check for the opposite of the test above, or for the same thing with different arguments
+test("should output data-less text", () => {
+  const text = generateText("", null);
+  expect(text).toBe(" (null years old)");
 });
